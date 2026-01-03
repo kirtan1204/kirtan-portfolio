@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
-        
         /* CSS Reset & Global Styles */
         * {
             margin: 0;
@@ -213,38 +212,7 @@
             transform: rotate(90deg);
         }
 
-        /* Hero Section */
-        .hero-image {
-            position: relative;
-            width: 500px;
-        }
-
-        .hero-photo {
-            outline: 6px solid rgba(255, 215, 0, 0.25);
-            outline-offset: 8px;
-            position: absolute;
-            top: 50%;
-            left: 83%;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            z-index: 2;
-
-            /* IMPORTANT */
-            transform: translate(-50%, -50%);
-            animation: float-photo 6s ease-in-out infinite;
-        }
-        @keyframes float-photo {
-            0%, 100% {
-                transform: translate(-50%, -50%) translateY(0);
-            }
-            50% {
-                transform: translate(-50%, -50%) translateY(-15px);
-            }
-        }
-
-
+        /* Hero Section - FIXED FOR MOBILE */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -255,9 +223,10 @@
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 100%;
             position: relative;
             z-index: 2;
+            margin-top: 0;
         }
 
         .hero h1 {
@@ -293,6 +262,7 @@
             transform: translateY(30px);
             animation: fadeUp 1s forwards 0.6s;
             color: var(--gray);
+            max-width: 600px;
         }
 
         .hero p span {
@@ -313,55 +283,23 @@
             animation: fadeUp 1s forwards 0.9s;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 16px 35px;
-            background: var(--primary);
-            color: var(--dark);
-            font-weight: 700;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            text-decoration: none;
-            text-align: center;
+        .hero-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid rgba(255, 215, 0, 0.25);
+            animation: float-photo 6s ease-in-out infinite;
+            display: none; /* Hidden on mobile, shown on desktop */
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background: var(--secondary);
-            transition: var(--transition);
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            width: 100%;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-secondary:hover {
-            color: var(--dark);
+        @keyframes float-photo {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         .hero-image {
@@ -817,6 +755,57 @@
             display: block;
         }
 
+        .btn {
+            display: inline-block;
+            padding: 16px 35px;
+            background: var(--primary);
+            color: var(--dark);
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--secondary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            color: var(--dark);
+        }
+
         /* Footer */
         footer {
             background: rgba(10, 10, 10, 0.95);
@@ -877,6 +866,10 @@
                 width: 400px;
                 height: 400px;
             }
+            
+            .hero h1 {
+                font-size: 3.8rem;
+            }
         }
 
         @media (max-width: 992px) {
@@ -887,7 +880,7 @@
             }
 
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 3.2rem;
             }
 
             h2 {
@@ -895,6 +888,10 @@
             }
 
             .hero-image {
+                display: none;
+            }
+            
+            .hero-photo {
                 display: none;
             }
         }
@@ -927,12 +924,25 @@
             }
 
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
+                line-height: 1.1;
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 25px;
             }
 
             .hero-btns {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 15px;
+            }
+
+            .hero-content {
+                padding-top: 20px;
             }
 
             .about-stats {
@@ -950,20 +960,63 @@
             .contact-item {
                 padding: 20px;
             }
+            
+            /* Show photo in hero on mobile */
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+            
+            .hero-photo {
+                display: block;
+                width: 220px;
+                height: 220px;
+                margin: 0 auto 30px;
+                position: relative;
+                transform: translateY(0);
+                animation: float-photo 6s ease-in-out infinite;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .hero-content {
+                text-align: center;
+                width: 100%;
+            }
         }
 
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 2.3rem;
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
             }
 
             .about-stats {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .footer-links {
                 flex-direction: column;
                 gap: 20px;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-photo {
+                width: 200px;
+                height: 200px;
             }
         }
 
@@ -1005,8 +1058,8 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <img src="images/profile.jpg" alt="Kirtan Patel" class="hero-photo">
         <div class="container">
+            <img src="images/profile.jpg" alt="Kirtan Patel" class="hero-photo">
             <div class="hero-content">
                 <h1>Hello, I'm <span>Kirtan Patel</span></h1>
                 <p>A passionate <span>UI/UX Designer</span> and <span class="blue">Front-End Developer</span> creating immersive digital experiences that captivate and convert.</p>
@@ -1339,11 +1392,9 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS with your public key
-        (function(){
-            emailjs.init("YOUR_PUBLIC_KEY"); // You'll need to sign up at emailjs.com and replace this with your actual public key
-        })();
-
+        // Initialize EmailJS
+        emailjs.init('eih8L9Gq5_FsVkP8m'); // EmailJS public key for testing
+        
         // Create subtle background animation
         function createBackgroundAnimation() {
             const bgAnimation = document.getElementById('bgAnimation');
@@ -1523,7 +1574,7 @@
             });
         }
         
-        // Contact Form Submission with EmailJS
+        // Contact Form Submission with EmailJS - ACTUAL EMAIL SENDING
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -1536,36 +1587,53 @@
             submitBtn.disabled = true;
             
             // Get form values
-            const formData = {
+            const templateParams = {
                 from_name: document.getElementById('name').value,
                 from_email: document.getElementById('email').value,
                 subject: document.getElementById('subject').value,
                 message: document.getElementById('message').value,
-                to_email: 'kirtanppatel2612@gmail.com' // Your email address
+                to_email: 'kirtanppatel2612@gmail.com',
+                to_name: 'Kirtan Patel'
             };
             
-            // For demo purposes - replace with actual EmailJS setup
-            // In real implementation, you would use:
-            // emailjs.send('service_xxx', 'template_xxx', formData)
-            
-            // Simulate email sending for demo
-            setTimeout(() => {
-                // Show success message
-                formMessage.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
-                formMessage.className = 'form-message success';
-                
-                // Reset form
-                document.getElementById('contactForm').reset();
-                
-                // Reset button state
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }, 1500);
+            // Send email using EmailJS
+            emailjs.send('service_iwz30sg', 'template_6vjzdmg', templateParams)
+                .then(function(response) {
+                    // Show success message
+                    formMessage.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
+                    formMessage.className = 'form-message success';
+                    formMessage.style.display = 'block';
+                    
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                    
+                    // Reset button state
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                    
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    // Show error message
+                    formMessage.textContent = 'Sorry, there was an error sending your message. Please try again later or contact me directly at kirtanppatel2612@gmail.com';
+                    formMessage.className = 'form-message error';
+                    formMessage.style.display = 'block';
+                    
+                    // Reset button state
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                    
+                    console.log('FAILED...', error);
+                });
         });
         
         // Initialize everything when page loads
@@ -1609,5 +1677,4 @@
         });
     </script>
 </body>
-
 </html>
