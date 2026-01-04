@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kirtan.click/sitemap.xml
