@@ -1428,289 +1428,302 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS
-        emailjs.init('vYHwhZD25D9mCKlFM'); // EmailJS public key for testing
+    // Initialize EmailJS with your actual credentials
+    (function() {
+        emailjs.init("vYHwhZD25D9mCKlFM"); // This is your public key
+    })();
+
+    // Create subtle background animation
+    function createBackgroundAnimation() {
+        const bgAnimation = document.getElementById('bgAnimation');
         
-        // Create subtle background animation
-        function createBackgroundAnimation() {
-            const bgAnimation = document.getElementById('bgAnimation');
+        // Create grid lines
+        for (let i = 0; i < 20; i++) {
+            const verticalLine = document.createElement('div');
+            verticalLine.classList.add('grid-line', 'vertical');
+            verticalLine.style.left = `${(i + 1) * 5}%`;
+            verticalLine.style.opacity = `${0.05 + Math.random() * 0.05}`;
+            bgAnimation.appendChild(verticalLine);
             
-            // Create grid lines
-            for (let i = 0; i < 20; i++) {
-                const verticalLine = document.createElement('div');
-                verticalLine.classList.add('grid-line', 'vertical');
-                verticalLine.style.left = `${(i + 1) * 5}%`;
-                verticalLine.style.opacity = `${0.05 + Math.random() * 0.05}`;
-                bgAnimation.appendChild(verticalLine);
-                
-                const horizontalLine = document.createElement('div');
-                horizontalLine.classList.add('grid-line', 'horizontal');
-                horizontalLine.style.top = `${(i + 1) * 5}%`;
-                horizontalLine.style.opacity = `${0.05 + Math.random() * 0.05}`;
-                bgAnimation.appendChild(horizontalLine);
-            }
-            
-            // Create floating shapes
-            for (let i = 0; i < 5; i++) {
-                const shape = document.createElement('div');
-                shape.classList.add('floating-shape');
-                
-                const size = Math.random() * 200 + 100;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const delay = Math.random() * 10;
-                const duration = Math.random() * 10 + 20;
-                
-                shape.style.width = `${size}px`;
-                shape.style.height = `${size}px`;
-                shape.style.left = `${posX}%`;
-                shape.style.top = `${posY}%`;
-                shape.style.animationDelay = `${delay}s`;
-                shape.style.animationDuration = `${duration}s`;
-                
-                bgAnimation.appendChild(shape);
-            }
+            const horizontalLine = document.createElement('div');
+            horizontalLine.classList.add('grid-line', 'horizontal');
+            horizontalLine.style.top = `${(i + 1) * 5}%`;
+            horizontalLine.style.opacity = `${0.05 + Math.random() * 0.05}`;
+            bgAnimation.appendChild(horizontalLine);
         }
+        
+        // Create floating shapes
+        for (let i = 0; i < 5; i++) {
+            const shape = document.createElement('div');
+            shape.classList.add('floating-shape');
+            
+            const size = Math.random() * 200 + 100;
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            const delay = Math.random() * 10;
+            const duration = Math.random() * 10 + 20;
+            
+            shape.style.width = `${size}px`;
+            shape.style.height = `${size}px`;
+            shape.style.left = `${posX}%`;
+            shape.style.top = `${posY}%`;
+            shape.style.animationDelay = `${delay}s`;
+            shape.style.animationDuration = `${duration}s`;
+            
+            bgAnimation.appendChild(shape);
+        }
+    }
 
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.innerHTML = navLinks.classList.contains('active') 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
         });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
         
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
+        // Update active nav link based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
         
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 300)) {
+                current = section.getAttribute('id');
             }
-            
-            // Update active nav link based on scroll position
-            const sections = document.querySelectorAll('section');
-            const navItems = document.querySelectorAll('.nav-links a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 300)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href').substring(1) === current) {
-                    item.classList.add('active');
-                }
-            });
-
-            // Animate elements on scroll
-            animateOnScroll();
         });
         
-        // Initialize Swiper (Projects Slider)
-        const swiper = new Swiper('.mySwiper', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            },
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href').substring(1) === current) {
+                item.classList.add('active');
+            }
         });
-        
-        // Animate skill bars when in viewport
-        const skillBars = document.querySelectorAll('.skill-progress');
-        
-        const animateSkillBars = () => {
-            skillBars.forEach(bar => {
-                const rect = bar.getBoundingClientRect();
-                const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
-                
-                if (isInViewport && !bar.classList.contains('animated')) {
-                    const width = bar.getAttribute('data-width');
-                    bar.style.width = width + '%';
-                    bar.classList.add('animated');
-                }
-            });
-        };
-        
-        // Animate counter numbers
-        const counters = document.querySelectorAll('.stat-number');
-        
-        const animateCounters = () => {
-            counters.forEach(counter => {
-                const rect = counter.getBoundingClientRect();
-                const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
-                
-                if (isInViewport && !counter.classList.contains('animated')) {
-                    const target = +counter.getAttribute('data-count');
-                    const increment = target / 100;
-                    let current = 0;
-                    
-                    const updateCounter = () => {
-                        if (current < target) {
-                            current += increment;
-                            counter.innerText = Math.floor(current);
-                            setTimeout(updateCounter, 20);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    };
-                    
-                    updateCounter();
-                    counter.classList.add('animated');
-                }
-            });
-        };
 
         // Animate elements on scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
+        animateOnScroll();
+    });
+    
+    // Initialize Swiper (Projects Slider)
+    const swiper = new Swiper('.mySwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+    });
+    
+    // Animate skill bars when in viewport
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    const animateSkillBars = () => {
+        skillBars.forEach(bar => {
+            const rect = bar.getBoundingClientRect();
+            const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
             
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
+            if (isInViewport && !bar.classList.contains('animated')) {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+                bar.classList.add('animated');
+            }
+        });
+    };
+    
+    // Animate counter numbers
+    const counters = document.querySelectorAll('.stat-number');
+    
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const rect = counter.getBoundingClientRect();
+            const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
+            
+            if (isInViewport && !counter.classList.contains('animated')) {
+                const target = +counter.getAttribute('data-count');
+                const increment = target / 100;
+                let current = 0;
                 
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('animated');
-                }
-            });
-        }
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.innerText = Math.floor(current);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCounter();
+                counter.classList.add('animated');
+            }
+        });
+    };
+
+    // Animate elements on scroll
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
         
-        // Contact Form Submission with EmailJS - ACTUAL EMAIL SENDING
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
             
-            const formMessage = document.getElementById('formMessage');
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            
-            // Get form values
-            const templateParams = {
-                from_name: document.getElementById('name').value,
-                from_email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value,
-                to_email: 'dev.kirtanp@gmail.com',
-                to_name: 'Kirtan Patel'
-            };
-            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('animated');
+            }
+        });
+    }
+    
+    // Contact Form Submission with EmailJS - FIXED VERSION
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Get form values
+        const templateParams = {
+            from_name: document.getElementById('name').value,
+            from_email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value,
+            to_email: 'dev.kirtanp@gmail.com',
+            to_name: 'Kirtan Patel',
+            reply_to: document.getElementById('email').value // Important: Add reply_to
+        };
+        
+        try {
             // Send email using EmailJS
-            emailjs.send('service_kfsmshg', 'template_a6jcz7t', templateParams)
-                .then(function(response) {
-                    // Show success message
-                    formMessage.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
-                    formMessage.className = 'form-message success';
-                    formMessage.style.display = 'block';
-                    
-                    // Reset form
-                    document.getElementById('contactForm').reset();
-                    
-                    // Reset button state
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
-                    
-                    // Hide message after 5 seconds
-                    setTimeout(() => {
-                        formMessage.style.display = 'none';
-                    }, 5000);
-                    
-                    console.log('SUCCESS!', response.status, response.text);
-                }, function(error) {
-                    // Show error message
-                    formMessage.textContent = 'Sorry, there was an error sending your message. Please try again later.';
-                    formMessage.className = 'form-message error';
-                    formMessage.style.display = 'block';
-                    
-                    // Reset button state
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
-                    
-                    // Hide message after 5 seconds
-                    setTimeout(() => {
-                        formMessage.style.display = 'none';
-                    }, 5000);
-                    
-                    console.log('FAILED...', error);
-                });
-        });
-        
-        // Initialize everything when page loads
-        window.addEventListener('load', () => {
-            createBackgroundAnimation();
-            animateSkillBars();
-            animateCounters();
-            animateOnScroll();
+            const response = await emailjs.send(
+                'service_kfsmshg', // Your service ID
+                'template_a6jcz7t', // Your template ID
+                templateParams
+            );
             
-            // Add initial animation to hero elements
+            // Show success message
+            formMessage.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
+            formMessage.className = 'form-message success';
+            formMessage.style.display = 'block';
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+            
+            // Reset button state
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+            
+            // Hide message after 5 seconds
             setTimeout(() => {
-                document.querySelectorAll('.section-title, h2').forEach(el => {
-                    el.classList.add('animated');
-                });
-            }, 100);
-        });
+                formMessage.style.display = 'none';
+            }, 5000);
+            
+            console.log('SUCCESS!', response.status, response.text);
+        } catch (error) {
+            // Show error message
+            formMessage.textContent = 'Sorry, there was an error sending your message. Please try again later or contact me directly at dev.kirtanp@gmail.com';
+            formMessage.className = 'form-message error';
+            formMessage.style.display = 'block';
+            
+            // Reset button state
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+            
+            console.error('FAILED...', error);
+            
+            // Alternative: Show the error details for debugging
+            if (error.text) {
+                console.error('EmailJS Error:', error.text);
+            }
+        }
+    });
+    
+    // Initialize everything when page loads
+    window.addEventListener('load', () => {
+        createBackgroundAnimation();
+        animateSkillBars();
+        animateCounters();
+        animateOnScroll();
         
-        // Scroll animation triggers
-        window.addEventListener('scroll', () => {
-            animateSkillBars();
-            animateCounters();
-            animateOnScroll();
-        });
-        
-        // Smooth scrolling for all anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if(this.getAttribute('href') === '#') return;
-                
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+        // Add initial animation to hero elements
+        setTimeout(() => {
+            document.querySelectorAll('.section-title, h2').forEach(el => {
+                el.classList.add('animated');
             });
+        }, 100);
+    });
+    
+    // Scroll animation triggers
+    window.addEventListener('scroll', () => {
+        animateSkillBars();
+        animateCounters();
+        animateOnScroll();
+    });
+    
+    // Smooth scrolling for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if(this.getAttribute('href') === '#') return;
+            
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
