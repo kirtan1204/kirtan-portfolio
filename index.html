@@ -1428,164 +1428,211 @@
     </style>
 </head>
 <body>
-    <!-- Subtle Background Animation -->
-    <div class="bg-animation" id="bgAnimation"></div>
-
-    <!-- Header -->
-    <header id="header">
+    <!-- Professional Header -->
+    <header class="professional-header" id="header">
         <div class="container">
-            <nav class="navbar">
-                <div class="logo">KIRTAN.<a style="color: rgb(57, 120, 255)">DEV</a></div>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="hamburger" id="hamburger">
+            <nav class="navbar-professional">
+                <a href="#home" class="logo-professional">
+                    <i class="fas fa-code"></i>
+                    Kirtan<span>Patel</span>
+                </a>
+                
+                <button class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-professional" id="navLinks">
+                    <a href="#home" class="nav-link-professional active">Home</a>
+                    <a href="#about" class="nav-link-professional">About</a>
+                    <a href="#skills" class="nav-link-professional">Skills</a>
+                    <a href="#projects" class="nav-link-professional">Projects</a>
+                    <a href="#contact" class="btn-contact-nav">Hire Me</a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section - Updated -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1>Hello, I'm <span>Kirtan Patel</span></h1>
-                        <p>A passionate <span>UI/UX Designer</span> and <span class="blue">Front-End Developer</span> creating immersive digital experiences that captivate and convert.</p>
-                        <div class="hero-btns">
-                            <a href="#projects" class="btn">View My Work</a>
-                            <a href="#contact" class="btn btn-secondary">Hire Me</a>
-                        </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-professional">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">UI/UX Designer & Frontend Developer</span>
+                    <h1 class="hero-title">
+                        Crafting Digital<br>
+                        Experiences<br> <span>That Inspire</span>
+                    </h1>
+                    <p class="hero-description">
+                        I'm Kirtan Patel, a passionate designer and developer dedicated to transform ideas into engaging digital experiences.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-paper-plane"></i> Get In Touch
+                        </a>
                     </div>
-                    <div class="hero-photo-container">
-                        <div class="hero-photo-wrapper">
-                            <div class="hero-photo-circle"></div>
-                            <img src="images/profile.jpeg" 
-                                alt="Kirtan Patel" 
-                                class="hero-photo">
+                </div>
+                
+                <div class="profile-elegant">
+                    <div class="profile-frame">
+                        <!-- <img src="profile.jpeg" alt="Kirtan Patel"> -->
+                        <img src="images/profile.jpeg" alt="Kirtan Patel">
+                    </div>
+                    <div class="profile-decoration"></div>
+                    <div class="floating-elements">
+                        <div class="float-element">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="float-element">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="float-element">
+                            <i class="fab fa-figma"></i>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about-professional">
         <div class="container">
-            <p class="section-title animate-on-scroll">About Me</p>
-            <h2 class="animate-on-scroll">Get to Know Me</h2>
-            <div class="about-content">
-                <div class="about-text animate-on-scroll">
-                    <p>I'm a passionate student specializing in web development and freelancing in UI/UX and front-end design. With a keen eye for detail and a love for creating seamless user experiences, I transform complex problems into intuitive, beautiful, and functional digital solutions.</p>
-                    <p>My journey in web development started 3 years ago, and since then I've been constantly learning and adapting to new technologies. I believe in creating digital experiences that not only look stunning but also provide real value to users.</p>
+            <div class="section-header">
+                <p class="section-subtitle">About Me</p>
+                <h2 class="section-title">Professional Journey</h2>
+                <p class="section-description">
+                    With years of experience in web development and design, I've helped numerous clients bring their digital visions to life.
+                </p>
+            </div>
+            
+            <div class="about-grid">
+                <div>
+                    <h3 class="section-heading">Passionate about creating meaningful digital experiences</h3>
+                    <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                        I specialize in creating intuitive, responsive, and visually appealing web applications. My approach combines technical expertise with creative design thinking to deliver solutions that not only look great but also perform exceptionally.
+                    </p>
+                    <p style="color: var(--gray-600);">
+                        My journey in web development started with a curiosity about how things work on the web, and it has evolved into a passion for creating seamless user experiences. I believe in continuous learning and staying updated with the latest technologies and design trends.
+                    </p>
+                    
                     <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="15">0</div>
-                            <div class="stat-text">Projects Completed</div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="25">0</div>
+                            <div class="stat-label">Projects Completed</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="8">0</div>
-                            <div class="stat-text">Happy Clients</div>
-                        </div>
-                        <div class="stat-item">
+                        <div class="stat-card">
                             <div class="stat-number" data-count="3">0</div>
-                            <div class="stat-text">Years Experience</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="15">0</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="100">0</div>
+                            <div class="stat-label">Percent Satisfaction</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image animate-on-scroll">
-                    <img src="images/about.jpg" style="height: 400px;" alt="Kirtan Patel">
+                
+                <div>
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Work Process" style="width: 100%; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills-professional">
         <div class="container">
-            <p class="section-title animate-on-scroll">My Expertise</p>
-            <h2 class="animate-on-scroll">Technical Skills</h2>
+            <div class="section-header">
+                <p class="section-subtitle">Expertise</p>
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-description">
+                    A comprehensive skill set covering modern web technologies and design tools.
+                </p>
+            </div>
+            
             <div class="skills-container">
-                <div class="skill-category animate-on-scroll">
-                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Development</h3>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">HTML5</span>
-                            <span class="skill-percent">95%</span>
+                        <div class="skill-header">
+                            <span class="skill-name">HTML5 / CSS3</span>
+                            <span class="skill-percentage">95%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="95"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">CSS3 / SASS</span>
-                            <span class="skill-percent">90%</span>
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript (ES6+)</span>
+                            <span class="skill-percentage">90%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="90"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">JavaScript</span>
-                            <span class="skill-percent">85%</span>
+                        <div class="skill-header">
+                            <span class="skill-name">React.js</span>
+                            <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="85"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">ReactJS</span>
-                            <span class="skill-percent">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category animate-on-scroll">
-                    <h3><i class="fas fa-palette"></i> Design & Tools</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">UI/UX Design</span>
-                            <span class="skill-percent">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Figma</span>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Adobe XD</span>
-                            <span class="skill-percent">75%</span>
+                        <div class="skill-header">
+                            <span class="skill-name">Node.js</span>
+                            <span class="skill-percentage">75%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="75"></div>
                         </div>
                     </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-palette"></i> Design & Tools</h3>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span class="skill-name">Git / GitHub</span>
-                            <span class="skill-percent">80%</span>
+                        <div class="skill-header">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Figma</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Adobe Creative Suite</span>
+                            <span class="skill-percentage">80%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git / GitHub</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
                         </div>
                     </div>
                 </div>
@@ -1594,162 +1641,177 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects-professional">
         <div class="container">
-            <p class="section-title animate-on-scroll">My Portfolio</p>
-            <h2 class="animate-on-scroll">Featured Projects</h2>
-            <div class="projects-slider">
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <!-- Project 1 -->
-                        <div class="swiper-slide">
-                            <div class="project-card animate-on-scroll">
-                                <div class="project-image">
-                                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&auto=format&fit=crop&q=80" alt="Foodie Restaurant Management">
-                                </div>
-                                <div class="project-content">
-                                    <h3>Foodie Restaurant Management</h3>
-                                    <p>A complete restaurant management system with menu, orders, inventory, and customer management. Features a sleek dashboard for restaurant owners and a user-friendly interface for customers.</p>
-                                    <div class="project-tags">
-                                        <span class="project-tag">ReactJS</span>
-                                        <span class="project-tag blue">Node.js</span>
-                                        <span class="project-tag">MongoDB</span>
-                                        <span class="project-tag blue">UI/UX</span>
-                                    </div>
-                                    <div class="project-links">
-                                        <a href="https://github.com/Kirtanpp/Foodie" target="_blank" class="btn">View on GitHub</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project 2 -->
-                        <div class="swiper-slide">
-                            <div class="project-card animate-on-scroll">
-                                <div class="project-image">
-                                    <img src="https://images.unsplash.com/photo-1515168833906-d2a3b82b5d70?w=600&auto=format&fit=crop&q=80" alt="Exhibition Management">
-                                </div>
-                                <div class="project-content">
-                                    <h3>Exhibition Management System</h3>
-                                    <p>A comprehensive platform for managing exhibitions, stall bookings, visitor registration, and event scheduling. Includes admin dashboard, exhibitor portal, and attendee mobile app.</p>
-                                    <div class="project-tags">
-                                        <span class="project-tag">JavaScript</span>
-                                        <span class="project-tag blue">Firebase</span>
-                                        <span class="project-tag">HTML/CSS</span>
-                                        <span class="project-tag blue">API Integration</span>
-                                    </div>
-                                    <div class="project-links">
-                                        <a href="#" class="btn">View on GitHub</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project 3 -->
-                        <div class="swiper-slide">
-                            <div class="project-card animate-on-scroll">
-                                <div class="project-image">
-                                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&auto=format&fit=crop&q=80" alt="E-commerce Platform">
-                                </div>
-                                <div class="project-content">
-                                    <h3>Modern E-commerce Platform</h3>
-                                    <p>A fully responsive e-commerce website with product filtering, cart functionality, user authentication, and payment integration. Focused on providing an optimal shopping experience.</p>
-                                    <div class="project-tags">
-                                        <span class="project-tag">React</span>
-                                        <span class="project-tag blue">Redux</span>
-                                        <span class="project-tag">Stripe API</span>
-                                        <span class="project-tag blue">Responsive Design</span>
-                                    </div>
-                                    <div class="project-links">
-                                        <a href="#" class="btn">View on GitHub</a>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="section-header">
+                <p class="section-subtitle">Portfolio</p>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    A selection of my recent work showcasing design and development expertise.
+                </p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&auto=format&fit=crop&q=80" alt="Restaurant Management">
+                        <div class="project-overlay">
+                            <a href="https://github.com/kirtan1204/buddys" class="btn btn-primary">View Project</a>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Foodie Restaurant Management</h3>
+                        <p class="project-description">
+                            A comprehensive restaurant management system with inventory, ordering, and customer management features.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag primary">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                            <span class="project-tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1508997449629-303059a039c0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Exhibition System">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Exhibition Management System</h3>
+                        <p class="project-description">
+                            Digital platform for managing exhibitions, vendor registration, and attendee engagement.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag primary">C++</span>
+                            <!-- <span class="project-tag">Firebase</span>
+                            <span class="project-tag">HTML/CSS</span> -->
+                            <span class="project-tag">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&auto=format&fit=crop&q=80" alt="E-commerce">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Modern E-commerce Platform</h3>
+                        <p class="project-description">
+                            Feature-rich online shopping platform with product filtering, cart, and secure checkout.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag primary">React</span>
+                            <span class="project-tag">Redux</span>
+                            <span class="project-tag">Stripe</span>
+                            <span class="project-tag">API</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact-professional">
         <div class="container">
-            <p class="section-title animate-on-scroll">Get In Touch</p>
-            <h2 class="animate-on-scroll">Contact Me</h2>
-            <div class="contact-container">
+            <div class="section-header">
+                <p class="section-subtitle">Get In Touch</p>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-description">
+                    Have a project in mind? I'd love to hear about it and discuss how we can bring your ideas to life.
+                </p>
+            </div>
+            
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-item animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <h3>Contact Information</h3>
+                    <p style="color: var(--gray-600); margin-bottom: 2rem;">
+                        Feel free to reach out for collaborations, opportunities, or just to say hello!
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Email</h4>
+                                <a href="mailto:dev.kirtanp@gmail.com">dev.kirtanp@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <a href="mailto:dev.kirtanp@gmail.com">dev.kirtanp@gmail.com</a>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Phone</h4>
+                                <a href="tel:+919924356404">+91 99243 56404</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <a href="tel:+919924356404">+91 99243 56404</a>
-                        </div>
-                    </div>
-                    <div class="contact-item animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Location</h3>
-                            <p>India</p>
-                        </div>
-                    </div>
-                    <div class="contact-item animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Social Media</h3>
-                            <div class="social-links">
-                                <a href="https://github.com/kirtan1204" target="_blank" class="social-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <!-- <a href="#" class="social-link">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a> -->
-                                <a href="https://x.com/patelkirtan140" class="social-link">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://www.instagram.com/kirtan.in?igsh=MW5tMWk1eTdkdjhwcw==" class="social-link">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Location</h4>
+                                <p>Based in India, working globally</p>
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="social-professional">
+                        <a href="https://github.com/kirtan1204" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com/patelkirtan140" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kirtan.in" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a> -->
+                    </div>
                 </div>
-                <div class="contact-form animate-on-scroll">
+                
+                <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                            <input type="text" id="name" class="form-control" placeholder="Full Name " required>
+                            <!-- <label for="name" class="form-label">Full Name</label> -->
                         </div>
+                        
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" id="email" class="form-control" placeholder="Email Address" required>
+                            <!-- <label for="email" class="form-label">Email Address</label> -->
                         </div>
+                        
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                            <input type="text" id="subject" class="form-control" placeholder="Subject">
+                            <!-- <label for="subject" class="form-label">Subject</label> -->
                         </div>
+                        
                         <div class="form-group">
-                            <label for="message">Message</label>
                             <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+                            <!-- <label for="message" class="form-label">Your Message</label> -->
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
-                        <div id="formMessage" class="form-message"></div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
                     </form>
                 </div>
             </div>
@@ -1757,325 +1819,299 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="professional-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">KIRTAN.<a style="color: rgb(57, 120, 255)">DEV</a></div>
-                <!-- <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul> -->
-                <div class="copyright">
-                    © 2026 Kirtan Patel | UI/UX Designer & Frontend Developer
+                <div>
+                    <div class="footer-logo">Kirtan<span>Patel</span></div>
+                    <p class="footer-description">
+                        Creating beautiful, functional digital experiences through thoughtful design and clean code.
+                    </p>
                 </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: 1.5rem;">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#home" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Home
+                        </a>
+                        <a href="#about" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> About
+                        </a>
+                        <a href="#skills" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Skills
+                        </a>
+                        <a href="#projects" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Projects
+                        </a>
+                        <a href="#contact" class="footer-link">
+                            <i class="fas fa-chevron-right"></i> Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                © 2026 Kirtan Patel. All rights reserved. | Designed & Developed with ❤️
             </div>
         </div>
     </footer>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-    // Initialize EmailJS with your actual credentials
-    (function() {
-        emailjs.init("vYHwhZD25D9mCKlFM"); // This is your public key
-    })();
-
-    // Create subtle background animation
-    function createBackgroundAnimation() {
-        const bgAnimation = document.getElementById('bgAnimation');
-        
-        // Create grid lines
-        for (let i = 0; i < 20; i++) {
-            const verticalLine = document.createElement('div');
-            verticalLine.classList.add('grid-line', 'vertical');
-            verticalLine.style.left = `${(i + 1) * 5}%`;
-            verticalLine.style.opacity = `${0.05 + Math.random() * 0.05}`;
-            bgAnimation.appendChild(verticalLine);
-            
-            const horizontalLine = document.createElement('div');
-            horizontalLine.classList.add('grid-line', 'horizontal');
-            horizontalLine.style.top = `${(i + 1) * 5}%`;
-            horizontalLine.style.opacity = `${0.05 + Math.random() * 0.05}`;
-            bgAnimation.appendChild(horizontalLine);
-        }
-        
-        // Create floating shapes
-        for (let i = 0; i < 5; i++) {
-            const shape = document.createElement('div');
-            shape.classList.add('floating-shape');
-            
-            const size = Math.random() * 200 + 100;
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            const delay = Math.random() * 10;
-            const duration = Math.random() * 10 + 20;
-            
-            shape.style.width = `${size}px`;
-            shape.style.height = `${size}px`;
-            shape.style.left = `${posX}%`;
-            shape.style.top = `${posY}%`;
-            shape.style.animationDelay = `${delay}s`;
-            shape.style.animationDuration = `${duration}s`;
-            
-            bgAnimation.appendChild(shape);
-        }
-    }
-
-    // Mobile Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.innerHTML = navLinks.classList.contains('active') 
-            ? '<i class="fas fa-times"></i>' 
-            : '<i class="fas fa-bars"></i>';
-    });
-    
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-        });
-    });
-    
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
+        <script>
+        // Mobile Navigation Toggle - Fixed Version
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
         const header = document.getElementById('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        // Update active nav link based on scroll position
-        const sections = document.querySelectorAll('section');
-        const navItems = document.querySelectorAll('.nav-links a');
-        
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - 300)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href').substring(1) === current) {
-                item.classList.add('active');
-            }
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Mobile menu toggle
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
         });
 
-        // Animate elements on scroll
-        animateOnScroll();
-    });
-    
-    // Initialize Swiper (Projects Slider)
-    const swiper = new Swiper('.mySwiper', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 2,
-            },
-            1024: {
-                slidesPerView: 3,
-            },
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-    });
-    
-    // Animate skill bars when in viewport
-    const skillBars = document.querySelectorAll('.skill-progress');
-    
-    const animateSkillBars = () => {
-        skillBars.forEach(bar => {
-            const rect = bar.getBoundingClientRect();
-            const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
+        function toggleMobileMenu() {
+            const isOpening = !navLinks.classList.contains('active');
             
-            if (isInViewport && !bar.classList.contains('animated')) {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = width + '%';
-                bar.classList.add('animated');
-            }
-        });
-    };
-    
-    // Animate counter numbers
-    const counters = document.querySelectorAll('.stat-number');
-    
-    const animateCounters = () => {
-        counters.forEach(counter => {
-            const rect = counter.getBoundingClientRect();
-            const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
-            
-            if (isInViewport && !counter.classList.contains('animated')) {
-                const target = +counter.getAttribute('data-count');
-                const increment = target / 100;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.innerText = Math.floor(current);
-                        setTimeout(updateCounter, 20);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                
-                updateCounter();
-                counter.classList.add('animated');
-            }
-        });
-    };
-
-    // Animate elements on scroll
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('animated');
-            }
-        });
-    }
-    
-    // Contact Form Submission with EmailJS - FIXED VERSION
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formMessage = document.getElementById('formMessage');
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerHTML;
-        
-        // Show loading state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        // Get form values
-        const templateParams = {
-            from_name: document.getElementById('name').value,
-            from_email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value,
-            to_email: 'dev.kirtanp@gmail.com',
-            to_name: 'Kirtan Patel',
-            reply_to: document.getElementById('email').value // Important: Add reply_to
-        };
-        
-        try {
-            // Send email using EmailJS
-            const response = await emailjs.send(
-                'service_kfsmshg', // Your service ID
-                'template_a6jcz7t', // Your template ID
-                templateParams
-            );
-            
-            // Show success message
-            formMessage.textContent = 'Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
-            formMessage.className = 'form-message success';
-            formMessage.style.display = 'block';
-            
-            // Reset form
-            document.getElementById('contactForm').reset();
-            
-            // Reset button state
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
-            
-            console.log('SUCCESS!', response.status, response.text);
-        } catch (error) {
-            // Show error message
-            formMessage.textContent = 'Sorry, there was an error sending your message. Please try again later or contact me directly at dev.kirtanp@gmail.com';
-            formMessage.className = 'form-message error';
-            formMessage.style.display = 'block';
-            
-            // Reset button state
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
-            
-            console.error('FAILED...', error);
-            
-            // Alternative: Show the error details for debugging
-            if (error.text) {
-                console.error('EmailJS Error:', error.text);
+            if (isOpening) {
+                // Opening menu
+                navLinks.classList.add('active');
+                mobileToggle.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.classList.add('menu-open');
+                document.addEventListener('click', closeMenuOnClickOutside);
+            } else {
+                // Closing menu
+                closeMobileMenu();
             }
         }
-    });
-    
-    // Initialize everything when page loads
-    window.addEventListener('load', () => {
-        createBackgroundAnimation();
-        animateSkillBars();
-        animateCounters();
-        animateOnScroll();
-        
-        // Add initial animation to hero elements
-        setTimeout(() => {
-            document.querySelectorAll('.section-title, h2').forEach(el => {
-                el.classList.add('animated');
+
+        function closeMobileMenu() {
+            navLinks.classList.remove('active');
+            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            document.body.classList.remove('menu-open');
+            document.removeEventListener('click', closeMenuOnClickOutside);
+        }
+
+        function closeMenuOnClickOutside(e) {
+            if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                closeMobileMenu();
+            }
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link-professional').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Only close if it's a hash link (not external)
+                if (link.getAttribute('href').startsWith('#')) {
+                    // Close menu with slight delay for smooth transition
+                    setTimeout(() => {
+                        closeMobileMenu();
+                    }, 300);
+                }
             });
-        }, 100);
-    });
-    
-    // Scroll animation triggers
-    window.addEventListener('scroll', () => {
-        animateSkillBars();
-        animateCounters();
-        animateOnScroll();
-    });
-    
-    // Smooth scrolling for all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            if(this.getAttribute('href') === '#') return;
-            
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if(targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                closeMobileMenu();
             }
         });
-    });
-</script>
+
+        // Close mobile menu when resizing window
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth > 768) {
+                    closeMobileMenu();
+                }
+            }, 250);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Update active nav link
+            updateActiveNavLink();
+        });
+
+        // Update active nav link based on scroll position
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link-professional');
+            
+            let currentSection = '';
+            let closestSection = '';
+            let smallestDistance = Infinity;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                const sectionBottom = sectionTop + sectionHeight;
+                const scrollPosition = window.scrollY + 100;
+                
+                // Check if current scroll position is within this section
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    currentSection = section.getAttribute('id');
+                }
+                
+                // Calculate distance to section for fallback
+                const distance = Math.abs(sectionTop - scrollPosition);
+                if (distance < smallestDistance) {
+                    smallestDistance = distance;
+                    closestSection = section.getAttribute('id');
+                }
+            });
+            
+            // Use current section or fallback to closest section
+            const activeSection = currentSection || closestSection;
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${activeSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const animateSkills = () => {
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = `${width}%`;
+                }
+            });
+        };
+
+        // Animate counter numbers
+        const counters = document.querySelectorAll('.stat-number');
+        
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const rect = counter.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0 && !counter.classList.contains('animated')) {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const increment = target / 100;
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        if (current < target) {
+                            current += increment;
+                            counter.textContent = Math.floor(current);
+                            setTimeout(updateCounter, 20);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    
+                    updateCounter();
+                    counter.classList.add('animated');
+                }
+            });
+        };
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                submitBtn.style.background = '#10B981';
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                    contactForm.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Theme Toggle Functionality
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            // Update theme
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon with animation
+            updateThemeIcon(newTheme);
+            
+            // Add animation class
+            themeToggle.classList.add('dark');
+            setTimeout(() => {
+                themeToggle.classList.remove('dark');
+            }, 500);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+        
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            updateActiveNavLink();
+            animateSkills();
+            animateCounters();
+            
+            // Add fade-in animation to all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section, index) => {
+                section.style.animation = `fadeInUp 0.8s ease forwards ${index * 0.2}s`;
+                section.style.opacity = '0';
+            });
+        });
+        
+        // Trigger animations on scroll
+        window.addEventListener('scroll', () => {
+            animateSkills();
+            animateCounters();
+        });
+
+        // Close menu when clicking on body (outside menu)
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !mobileToggle.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>
-
