@@ -1050,6 +1050,22 @@
 
         /* ===== MOBILE MENU STYLES FOR PILL NAVIGATION ===== */
         @media (max-width: 768px) {
+            /* Show profile first on mobile */
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .profile-elegant {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+
+            .hero-text {
+                order: 2;
+                text-align: center;
+            }
+            
             .container {
                 padding: 0 1.5rem;
             }
@@ -2096,6 +2112,7 @@
     </script>
 </body>
 </html>
+
 
 
 
