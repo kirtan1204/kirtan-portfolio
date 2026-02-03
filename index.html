@@ -1785,25 +1785,26 @@
                     </div>
                 </div>
                 
+                <!-- Contact Form Section - Updated with Formspree -->
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Full Name" required>
                         </div>
 
                         <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" required>
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
                         </div>
 
                         <div class="form-group">
-                            <textarea name="message" id="message" class="form-control" placeholder="Your Message" required></textarea>
+                            <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <button type="submit" class="btn btn-primary" style="width:100%;">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
@@ -1857,15 +1858,37 @@
     </button>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
     <script>
     (function () {
-        emailjs.init("vYHwhZD25D9mCKlFM");
+        emailjs.init("vYHwhZD25D9mCKlFM"); // your PUBLIC KEY
     })();
     </script>
 
 
-        <script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your public key
+            emailjs.init({
+                publicKey: "vYHwhZD25D9mCKlFM",
+                blockHeadless: true,
+                blockList: {
+                    list: ['foo@emailjs.com', 'bar@emailjs.com'],
+                    watchVariable: 'userEmail'
+                },
+                limitRate: {
+                    throttle: 10000, // 10 seconds
+                },
+            });
+            
+            console.log('EmailJS initialized successfully');
+        })();
+    </script>
+
+    <script>
         // Mobile Navigation Toggle - Fixed Version
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
@@ -2029,46 +2052,47 @@
             });
         };
 
-        // Form submission (FIXED)
-        const contactForm = document.getElementById('contactForm');
-
-        contactForm.addEventListener('submit', (e) => {
+        
+        const contactForm = document.getElementById("contactForm");
+        contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
 
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const submitBtn = contactForm.querySelector("button");
             const originalText = submitBtn.innerHTML;
 
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
 
             emailjs.sendForm(
-                "service_kfsmshg",
-                "template_a6jcz7t",
+                "service_8ifzn1r",     // SERVICE ID
+                "template_10pigza",    // TEMPLATE ID
                 contactForm
             ).then(() => {
                 submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                submitBtn.style.background = '#10B981';
+                submitBtn.style.background = "#10B981";
+
+                contactForm.reset();
 
                 setTimeout(() => {
                     submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = '';
+                    submitBtn.style.background = "";
                     submitBtn.disabled = false;
-                    contactForm.reset();
-                }, 2000);
+                }, 2500);
+
             }).catch((error) => {
                 console.error("EmailJS Error:", error);
 
                 submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
-                submitBtn.style.background = '#EF4444';
+                submitBtn.style.background = "#EF4444";
 
                 setTimeout(() => {
                     submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = '';
+                    submitBtn.style.background = "";
                     submitBtn.disabled = false;
-                }, 2000);
+                }, 2500);
             });
         });
-
+        
         // Theme Toggle Functionality
         // Check for saved theme preference or default to light
         const currentTheme = localStorage.getItem('theme') || 'light';
@@ -2132,4 +2156,3 @@
     </script>
 </body>
 </html>
-
