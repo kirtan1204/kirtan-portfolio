@@ -1222,8 +1222,7 @@
             /* Prevent body scroll when menu is open */
             body.menu-open {
                 overflow: hidden;
-                position: fixed;
-                width: 100%;
+                touch-action: none;
             }
             
             .hero-title {
@@ -1857,37 +1856,6 @@
         <i class="fas fa-moon"></i>
     </button>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-    <script>
-    (function () {
-        emailjs.init("vYHwhZD25D9mCKlFM"); // your PUBLIC KEY
-    })();
-    </script>
-
-
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // Initialize EmailJS with your public key
-            emailjs.init({
-                publicKey: "vYHwhZD25D9mCKlFM",
-                blockHeadless: true,
-                blockList: {
-                    list: ['foo@emailjs.com', 'bar@emailjs.com'],
-                    watchVariable: 'userEmail'
-                },
-                limitRate: {
-                    throttle: 10000, // 10 seconds
-                },
-            });
-            
-            console.log('EmailJS initialized successfully');
-        })();
-    </script>
-
     <script>
         // Mobile Navigation Toggle - Fixed Version
         const mobileToggle = document.getElementById('mobileToggle');
@@ -1910,7 +1878,6 @@
                 navLinks.classList.add('active');
                 mobileToggle.innerHTML = '<i class="fas fa-times"></i>';
                 document.body.classList.add('menu-open');
-                document.addEventListener('click', closeMenuOnClickOutside);
             } else {
                 // Closing menu
                 closeMobileMenu();
@@ -1921,26 +1888,39 @@
             navLinks.classList.remove('active');
             mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
             document.body.classList.remove('menu-open');
-            document.removeEventListener('click', closeMenuOnClickOutside);
         }
 
-        function closeMenuOnClickOutside(e) {
-            if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+        // Close mobile menu when clicking a navigation link
+        document.querySelectorAll('.nav-link-professional').forEach(link => {
+            link.addEventListener('click', () => {
+                // Close the mobile menu
+                closeMobileMenu();
+                
+                // Update active state after a short delay to ensure smooth transition
+                setTimeout(() => {
+                    document.querySelectorAll('.nav-link-professional').forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    link.classList.add('active');
+                }, 300);
+            });
+        });
+
+        // Also handle the "Hire Me" button in mobile menu
+        const hireMeBtn = document.querySelector('.btn-contact-nav');
+        if (hireMeBtn) {
+            hireMeBtn.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !mobileToggle.contains(e.target)) {
                 closeMobileMenu();
             }
-        }
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-link-professional').forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Only close if it's a hash link (not external)
-                if (link.getAttribute('href').startsWith('#')) {
-                    // Close menu with slight delay for smooth transition
-                    setTimeout(() => {
-                        closeMobileMenu();
-                    }, 300);
-                }
-            });
         });
 
         // Close mobile menu on escape key
@@ -1950,15 +1930,11 @@
             }
         });
 
-        // Close mobile menu when resizing window
-        let resizeTimer;
+        // Close mobile menu when resizing to desktop
         window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                if (window.innerWidth > 768) {
-                    closeMobileMenu();
-                }
-            }, 250);
+            if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            }
         });
 
         // Header scroll effect
@@ -2033,6 +2009,10 @@
                 const rect = counter.getBoundingClientRect();
                 if (rect.top < window.innerHeight && rect.bottom >= 0 && !counter.classList.contains('animated')) {
                     const target = parseInt(counter.getAttribute('data-count'));
+                    if (isNaN(target)) {
+                        // Handle "Fresher" text
+                        return;
+                    }
                     const increment = target / 100;
                     let current = 0;
                     
@@ -2052,46 +2032,48 @@
             });
         };
 
-        
+        // Contact Form Submission
         const contactForm = document.getElementById("contactForm");
-        contactForm.addEventListener("submit", function (e) {
-            e.preventDefault();
+        if (contactForm) {
+            contactForm.addEventListener("submit", function (e) {
+                e.preventDefault();
 
-            const submitBtn = contactForm.querySelector("button");
-            const originalText = submitBtn.innerHTML;
+                const submitBtn = contactForm.querySelector("button");
+                const originalText = submitBtn.innerHTML;
 
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
 
-            emailjs.sendForm(
-                "service_8ifzn1r",     // SERVICE ID
-                "template_10pigza",    // TEMPLATE ID
-                contactForm
-            ).then(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                submitBtn.style.background = "#10B981";
+                emailjs.sendForm(
+                    "service_8ifzn1r",     // SERVICE ID
+                    "template_10pigza",    // TEMPLATE ID
+                    contactForm
+                ).then(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                    submitBtn.style.background = "#10B981";
 
-                contactForm.reset();
+                    contactForm.reset();
 
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = "";
-                    submitBtn.disabled = false;
-                }, 2500);
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = "";
+                        submitBtn.disabled = false;
+                    }, 2500);
 
-            }).catch((error) => {
-                console.error("EmailJS Error:", error);
+                }).catch((error) => {
+                    console.error("EmailJS Error:", error);
 
-                submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
-                submitBtn.style.background = "#EF4444";
+                    submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
+                    submitBtn.style.background = "#EF4444";
 
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = "";
-                    submitBtn.disabled = false;
-                }, 2500);
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = "";
+                        submitBtn.disabled = false;
+                    }, 2500);
+                });
             });
-        });
+        }
         
         // Theme Toggle Functionality
         // Check for saved theme preference or default to light
@@ -2143,15 +2125,6 @@
         window.addEventListener('scroll', () => {
             animateSkills();
             animateCounters();
-        });
-
-        // Close menu when clicking on body (outside menu)
-        document.addEventListener('click', (e) => {
-            if (navLinks.classList.contains('active') && 
-                !navLinks.contains(e.target) && 
-                !mobileToggle.contains(e.target)) {
-                closeMobileMenu();
-            }
         });
     </script>
 </body>
